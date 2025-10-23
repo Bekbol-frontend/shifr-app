@@ -126,12 +126,16 @@ function SecondForm() {
           </Button>
         </Form.Item>
 
-        <Title level={4} className={styles.title}>
-          Natiyje:
-        </Title>
-        <Card>
-          <Title level={5}>{result.toUpperCase()}</Title>
-        </Card>
+        {result && (
+          <>
+            <Title level={4} className={styles.title}>
+              Natiyje:
+            </Title>
+            <Card>
+              <Title level={5}>{result.toUpperCase()}</Title>
+            </Card>
+          </>
+        )}
       </Form>
     </Card>
   );

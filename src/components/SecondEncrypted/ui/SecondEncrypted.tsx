@@ -3,14 +3,17 @@ import { Card, Col, Row } from "antd";
 import styles from "./SecondEncrypted.module.css";
 import { FormulaCard } from "@/components/FormulaCard";
 import SecondForm from "./SecondForm/SecondForm";
+import { useResponsive } from "@/hooks/useResponsive";
 
 function SecondEncrypted() {
+  const { isMobile } = useResponsive();
+
   return (
     <div className={styles.second}>
       <Card className={styles.card}>
         <TitleBlock title="Formulani tusindiriw" />
-        <Row gutter={16}>
-          <Col span={12}>
+        <Row gutter={[16, 16]}>
+          <Col span={isMobile ? 24 : 12}>
             <FormulaCard
               title="Shifrlaw"
               desc1="Shifrlaw algoritmi formulasi:"
@@ -20,7 +23,7 @@ function SecondEncrypted() {
                 támiyinleydi"
             />
           </Col>
-          <Col span={12}>
+          <Col span={isMobile ? 24 : 12}>
             <FormulaCard
               title="Deshifr"
               desc1="Shifrdi ashiw algoritmi formulası:"
