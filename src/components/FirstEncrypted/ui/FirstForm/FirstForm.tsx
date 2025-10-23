@@ -16,7 +16,6 @@ type FieldType = {
 
 function FirstForm() {
   const [result, setResult] = useState<string>("");
-
   const { lang } = useAppContext();
 
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
@@ -24,7 +23,6 @@ function FirstForm() {
     const key = Number(values.key) || 0;
     const operation = values.operation;
 
-    // ✅ Alfavitni tanlaymiz
     const alphabet =
       lang === "qq"
         ? "AÁBDEFGǴHXÍIJKQLMNŃOÓPRSTUÚVWYZCCHSH"
@@ -34,26 +32,35 @@ function FirstForm() {
 
     const processText = (input: string) => {
       let out = "";
+      let letterPosition = 0; // Faqat harflar uchun hisoblagich
 
       for (let i = 0; i < input.length; i++) {
         const ch = input[i].toUpperCase();
-
         const index = alphabet.indexOf(ch);
+
         if (index === -1) {
-          out += ch;
+          // Agar harf alfavitda bo'lmasa, o'zgartirilmasdan qo'shiladi
+          out += input[i]; // Original belgi (bo'shliq, tinish belgilari)
           continue;
         }
 
+        // Faqat topilgan harflar uchun letterPosition oshadi
+        letterPosition++;
+
         let newIndex;
         if (operation === "encrypt") {
-          newIndex = (index + key + (i + 1)) % mod;
+          // Shifrlash: E = (x + k + i) mod 26
+          newIndex = (index + key + letterPosition) % mod;
         } else {
-          newIndex = (index - (key + (i + 1)) + mod * 10) % mod;
+          // Deshifrlash: D = (y - (k + i)) mod 26
+          newIndex = (index - ((key + letterPosition) % mod) + mod) % mod;
         }
 
         const newChar = alphabet[newIndex];
 
-        out += newChar;
+        // Original harfning katta yoki kichikligini saqlab qolish
+        out +=
+          input[i] === input[i].toLowerCase() ? newChar.toLowerCase() : newChar;
       }
 
       return out;
@@ -74,7 +81,7 @@ function FirstForm() {
         <Form.Item<FieldType>
           label="Tekstti qayta islew ushin kiritin:"
           name="text"
-          rules={[{ required: true, message: "Please input your text!" }]}
+          rules={[{ required: true, message: "Matnni kiriting!" }]}
         >
           <TextArea rows={5} />
         </Form.Item>
@@ -88,7 +95,7 @@ function FirstForm() {
                 {
                   type: "string",
                   required: true,
-                  message: "Please input your operation!",
+                  message: "Operaciyani tanlang!",
                 },
               ]}
             >
@@ -106,20 +113,11 @@ function FirstForm() {
                 {
                   type: "number",
                   required: true,
-                  message: "Please input your key!",
+                  message: "Kalitni kiriting!",
                 },
               ]}
             >
-              <InputNumber
-                min={1}
-                max={100}
-                style={{ width: "100%" }}
-                onKeyDown={(e) => {
-                  if (!/[0-9]/.test(e.key)) {
-                    e.preventDefault();
-                  }
-                }}
-              />
+              <InputNumber min={1} max={100} style={{ width: "100%" }} />
             </Form.Item>
           </Col>
         </Row>
@@ -136,7 +134,7 @@ function FirstForm() {
               Natiyje:
             </Title>
             <Card>
-              <Title level={5}>{result}</Title>
+              <Title level={5}>{result.toUpperCase()}</Title>
             </Card>
           </>
         )}
