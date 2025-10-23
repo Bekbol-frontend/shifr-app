@@ -6,6 +6,8 @@ import "./app/styles/main.css";
 
 import "@ant-design/v5-patch-for-react-19";
 
+import "./config/i18n";
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <App />

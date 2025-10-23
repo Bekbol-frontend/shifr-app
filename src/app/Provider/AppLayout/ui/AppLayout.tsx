@@ -4,7 +4,7 @@ import { Layout } from "antd";
 import { Content } from "antd/es/layout/layout";
 import styles from "./AppLayout.module.css";
 import { AppConfigProvider } from "../../AppConfigProvider";
-// import { FirstEncrypted } from "@/components/FirstEncrypted";
+import { FirstEncrypted } from "@/components/FirstEncrypted";
 import { SecondEncrypted } from "@/components/SecondEncrypted";
 
 function AppLayout() {
@@ -14,7 +14,7 @@ function AppLayout() {
         <HeaderApp />
         <Layout>
           <Content className={styles.content}>
-            {/* <FirstEncrypted /> */}
+            <FirstEncrypted />
             <SecondEncrypted />
           </Content>
         </Layout>
