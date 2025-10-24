@@ -1,22 +1,31 @@
-import { useCallback, useState, type ReactNode } from "react";
+import { useCallback, useMemo, useState, type ReactNode } from "react";
 import { AppContext } from "../config";
 import { LangEnum } from "@/constants";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   children: ReactNode;
 }
 
 function AppContextProvider({ children }: IProps) {
-  const [lang, setLang] = useState<LangEnum>(LangEnum.EN);
+  const { i18n } = useTranslation();
+  const [lang, setLang] = useState<LangEnum>(i18n.language as LangEnum);
 
-  const changeLang = useCallback((val: LangEnum) => {
-    setLang(val);
-  }, []);
+  const changeLang = useCallback(
+    (val: LangEnum) => {
+      setLang(val);
+      i18n.changeLanguage(val);
+    },
+    [i18n]
+  );
 
-  const values = {
-    lang,
-    changeLang,
-  };
+  const values = useMemo(
+    () => ({
+      lang,
+      changeLang,
+    }),
+    [lang, changeLang]
+  );
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 }

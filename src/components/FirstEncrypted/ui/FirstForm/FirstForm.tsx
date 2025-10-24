@@ -5,6 +5,7 @@ import TextArea from "antd/es/input/TextArea";
 import styles from "./FirstForm.module.css";
 import { useState } from "react";
 import { useAppContext } from "@/hooks/useAppContext";
+import { useTranslation } from "react-i18next";
 
 const { Title } = Typography;
 
@@ -17,6 +18,7 @@ type FieldType = {
 function FirstForm() {
   const [result, setResult] = useState<string>("");
   const { lang } = useAppContext();
+  const { t } = useTranslation();
 
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     const text = values.text || "";
@@ -32,19 +34,17 @@ function FirstForm() {
 
     const processText = (input: string) => {
       let out = "";
-      let letterPosition = 0; // Faqat harflar uchun hisoblagich
+      let letterPosition = 0;
 
       for (let i = 0; i < input.length; i++) {
         const ch = input[i].toUpperCase();
         const index = alphabet.indexOf(ch);
 
         if (index === -1) {
-          // Agar harf alfavitda bo'lmasa, o'zgartirilmasdan qo'shiladi
-          out += input[i]; // Original belgi (bo'shliq, tinish belgilari)
+          out += input[i];
           continue;
         }
 
-        // Faqat topilgan harflar uchun letterPosition oshadi
         letterPosition++;
 
         let newIndex;
@@ -79,9 +79,9 @@ function FirstForm() {
         layout="vertical"
       >
         <Form.Item<FieldType>
-          label="Tekstti qayta islew ushin kiritin:"
+          label={t("To restore the text, enter:")}
           name="text"
-          rules={[{ required: true, message: "Matnni kiriting!" }]}
+          rules={[{ required: true, message: t("Please input your text!") }]}
         >
           <TextArea rows={5} />
         </Form.Item>
@@ -95,25 +95,25 @@ function FirstForm() {
                 {
                   type: "string",
                   required: true,
-                  message: "Operaciyani tanlang!",
+                  message: t("Please input your operation!"),
                 },
               ]}
             >
               <Select>
-                <Select.Option value="encrypt">Shifrlaw</Select.Option>
-                <Select.Option value="decrypt">Deshifrlaw</Select.Option>
+                <Select.Option value="encrypt">{t("Encryption")}</Select.Option>
+                <Select.Option value="decrypt">{t("Decipher")}</Select.Option>
               </Select>
             </Form.Item>
           </Col>
           <Col span={12}>
             <Form.Item<FieldType>
-              label="Gilt:"
+              label={t("Key")}
               name="key"
               rules={[
                 {
                   type: "number",
                   required: true,
-                  message: "Kalitni kiriting!",
+                  message: t("Please input your key!"),
                 },
               ]}
             >
@@ -124,14 +124,14 @@ function FirstForm() {
 
         <Form.Item label={null}>
           <Button type="primary" htmlType="submit">
-            Tekstti islep shigiw
+            {t("Get result")}
           </Button>
         </Form.Item>
 
         {result && (
           <>
             <Title level={4} className={styles.title}>
-              Natiyje:
+              {t("Result")}
             </Title>
             <Card>
               <Title level={5}>{result.toUpperCase()}</Title>

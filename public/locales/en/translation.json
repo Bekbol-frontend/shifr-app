@@ -1,6 +1,7 @@
 {
   "Edit the program": "Edit the program",
   "Encryption": "Encryption",
+  "Decipher": "Decipher",
   "The encryption algorithm formula is:": "The encryption algorithm formula is:",
   "To restore the text, enter:": "To restore the text, enter:",
   "Comply with:": "Comply with:",
@@ -10,5 +11,6 @@
   "Please input your operation!": "Please input your operation!",
   "Please input your key!": "Please input your key!",
 
-  "Get result": "Get result"
+  "Get result": "Get result",
+  "Result": "Result"
 }

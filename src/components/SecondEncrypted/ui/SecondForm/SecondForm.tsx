@@ -4,6 +4,7 @@ import { Button, Form } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import styles from "./SecondForm.module.css";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const { Title } = Typography;
 
@@ -15,6 +16,7 @@ type FieldType = {
 
 function SecondForm() {
   const [result, setResult] = useState<string>("");
+  const { t } = useTranslation();
 
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     const text = values.text || "";
@@ -68,7 +70,7 @@ function SecondForm() {
         layout="vertical"
       >
         <Form.Item<FieldType>
-          label="Tekstti qayta islew ushin kiritin:"
+          label={t("To restore the text, enter:")}
           name="text"
           rules={[{ required: true, message: "Please input your text!" }]}
         >
@@ -84,25 +86,25 @@ function SecondForm() {
                 {
                   type: "string",
                   required: true,
-                  message: "Please input your operation!",
+                  message: t("Please input your operation!"),
                 },
               ]}
             >
               <Select>
-                <Select.Option value="encrypt">Shifrlaw</Select.Option>
-                <Select.Option value="decrypt">Deshifrlaw</Select.Option>
+                <Select.Option value="encrypt">{t("Encryption")}</Select.Option>
+                <Select.Option value="decrypt">{t("Decipher")}</Select.Option>
               </Select>
             </Form.Item>
           </Col>
           <Col span={12}>
             <Form.Item<FieldType>
-              label="Gilt:"
+              label={t("Key")}
               name="key"
               rules={[
                 {
                   type: "number",
                   required: true,
-                  message: "Please input your key!",
+                  message: t("Please input your key!"),
                 },
               ]}
             >
@@ -122,14 +124,14 @@ function SecondForm() {
 
         <Form.Item label={null}>
           <Button type="primary" htmlType="submit">
-            Tekstti islep shigiw
+            {t("Get result")}
           </Button>
         </Form.Item>
 
         {result && (
           <>
             <Title level={4} className={styles.title}>
-              Natiyje:
+              {t("Result")}
             </Title>
             <Card>
               <Title level={5}>{result.toUpperCase()}</Title>
