@@ -23,6 +23,7 @@ function FirstEncrypted() {
               desc3={t(
                 "Ei = Shifrlanǵan hárip,   xi = háriptiń alfavittegi tártip nomeri, i = háriptiń sózdegi ornı, K=gilt, mod = háripti álipbeden shıǵıp qalmawın támiyinleydi."
               )}
+              formula="e"
             />
           </Col>
           <Col span={isMobile ? 24 : 12}>
@@ -33,6 +34,7 @@ function FirstEncrypted() {
               desc3={t(
                 "Shifrdi ashıw procesi de uqsas, biraq giltti alıw ('-') arqalı orınlanadı"
               )}
+              formula="d"
             />
           </Col>
         </Row>
