@@ -6,6 +6,7 @@ import styles from "./AppLayout.module.css";
 import { AppConfigProvider } from "../../AppConfigProvider";
 import { FirstEncrypted } from "@/components/FirstEncrypted";
 import { SecondEncrypted } from "@/components/SecondEncrypted";
+import { Container } from "@/components/Container";
 
 function AppLayout() {
   return (
@@ -14,8 +15,10 @@ function AppLayout() {
         <HeaderApp />
         <Layout>
           <Content className={styles.content}>
-            <FirstEncrypted />
-            <SecondEncrypted />
+            <Container>
+              <FirstEncrypted />
+              <SecondEncrypted />
+            </Container>
           </Content>
         </Layout>
         <FooterApp />

@@ -10,5 +10,11 @@
   "Please input your operation!": "Ámeliyatıńızdı kiritiń!",
   "Please input your key!": "Giltińizdi kiritiń!",
   "Get result": "Nátiyjeni alıw",
-  "Result": "Nátiyje"
+  "Result": "Nátiyje",
+
+  "Ei = (xi + i + k)mod34": "Ei = (xi + i + k)mod34",
+  "Ei = Shifrlanǵan hárip,   xi = háriptiń alfavittegi tártip nomeri, i = háriptiń sózdegi ornı, K=gilt, mod = háripti álipbeden shıǵıp qalmawın támiyinleydi.": "Ei = Shifrlanǵan hárip,   xi = háriptiń alfavittegi tártip nomeri, i = háriptiń sózdegi ornı, K=gilt, mod = háripti álipbeden shıǵıp qalmawın támiyinleydi.",
+
+  "Di = (y - (i + k))mod34": "Di = (y - (i + k))mod34",
+  "Shifrdi ashıw procesi de uqsas, biraq giltti alıw ('-') arqalı orınlanadı": "Shifrdi ashıw procesi de uqsas, biraq giltti alıw ('-') arqalı orınlanadı"
 }

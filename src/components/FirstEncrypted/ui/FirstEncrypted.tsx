@@ -19,16 +19,20 @@ function FirstEncrypted() {
             <FormulaCard
               title={t("Encryption")}
               desc1={t("The encryption algorithm formula is:")}
-              desc2="E = (x + k + i)mod26"
-              desc3="Aziza, buradaki kelimeyi yazar mısın lütfen?"
+              desc2={t("Ei = (xi + i + k)mod34")}
+              desc3={t(
+                "Ei = Shifrlanǵan hárip,   xi = háriptiń alfavittegi tártip nomeri, i = háriptiń sózdegi ornı, K=gilt, mod = háripti álipbeden shıǵıp qalmawın támiyinleydi."
+              )}
             />
           </Col>
           <Col span={isMobile ? 24 : 12}>
             <FormulaCard
               title={t("Decipher")}
               desc1={t("The encryption algorithm formula is:")}
-              desc2="D = (y - (k + i))mod26"
-              desc3="Aziza, buradaki kelimeyi yazar mısın lütfen?"
+              desc2={t("Di = (y - (i + k))mod34")}
+              desc3={t(
+                "Shifrdi ashıw procesi de uqsas, biraq giltti alıw ('-') arqalı orınlanadı"
+              )}
             />
           </Col>
         </Row>

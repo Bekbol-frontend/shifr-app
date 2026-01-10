@@ -12,8 +12,10 @@ function AppConfigProvider({ children }: IProps) {
         components: {
           Layout: {
             headerBg: "#fff",
+            headerPadding: 0,
             headerHeight: 80,
             footerBg: "#fff",
+            footerPadding: 0,
           },
           Typography: {
             titleMarginBottom: 0,
