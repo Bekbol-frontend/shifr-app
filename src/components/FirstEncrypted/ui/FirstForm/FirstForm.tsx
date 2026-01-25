@@ -90,19 +90,16 @@ function FirstForm() {
         let tokenLen = 0;
         let isUpperCase = false;
 
-        // 2 harfli tokenlarni tekshirish
         if (has2 && pos + 2 <= input.length) {
           const s2 = input.slice(pos, pos + 2);
           const s2Upper = s2.toUpperCase();
           if (alphabet.indexOf(s2Upper) !== -1) {
             token = s2Upper;
             tokenLen = 2;
-            // Birinchi harf katta bo'lsa, butun token katta deb hisoblaymiz
             isUpperCase = s2[0] === s2[0].toUpperCase();
           }
         }
 
-        // 1 harfli tokenlarni tekshirish
         if (!token) {
           const s1 = input.slice(pos, pos + 1);
           const s1Upper = s1.toUpperCase();
@@ -128,7 +125,6 @@ function FirstForm() {
 
           let resultChar = alphabet[resultNum];
 
-          // Agar asl harf kichik bo'lsa, natijani ham kichik qilamiz
           if (!isUpperCase) {
             resultChar = resultChar.toLowerCase();
           }
