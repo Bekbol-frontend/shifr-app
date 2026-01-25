@@ -23,7 +23,7 @@ function FirstForm() {
   const [form] = Form.useForm();
 
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
-    const text = values.text?.toUpperCase() || "";
+    const text = values.text || "";
     const key = Number(values.key) || 0;
     const operation = values.operation;
 
@@ -72,13 +72,12 @@ function FirstForm() {
     const processText = (input: string) => {
       let out = "";
       let i = 0;
-      const upper = input.toUpperCase();
-      const separators = new Set([" ", "\n", "\t", "-", "'", "’"]);
+      const separators = new Set([" ", "\n", "\t", "-", "'", "'"]);
 
       const has2 = alphabet.some((a) => a.length === 2);
 
-      for (let pos = 0; pos < upper.length; ) {
-        const ch = upper[pos];
+      for (let pos = 0; pos < input.length; ) {
+        const ch = input[pos];
 
         if (separators.has(ch)) {
           out += ch;
@@ -89,20 +88,28 @@ function FirstForm() {
 
         let token: string | null = null;
         let tokenLen = 0;
+        let isUpperCase = false;
 
-        if (has2 && pos + 2 <= upper.length) {
-          const s2 = upper.slice(pos, pos + 2);
-          if (alphabet.indexOf(s2) !== -1) {
-            token = s2;
+        // 2 harfli tokenlarni tekshirish
+        if (has2 && pos + 2 <= input.length) {
+          const s2 = input.slice(pos, pos + 2);
+          const s2Upper = s2.toUpperCase();
+          if (alphabet.indexOf(s2Upper) !== -1) {
+            token = s2Upper;
             tokenLen = 2;
+            // Birinchi harf katta bo'lsa, butun token katta deb hisoblaymiz
+            isUpperCase = s2[0] === s2[0].toUpperCase();
           }
         }
 
+        // 1 harfli tokenlarni tekshirish
         if (!token) {
-          const s1 = upper.slice(pos, pos + 1);
-          if (alphabet.indexOf(s1) !== -1) {
-            token = s1;
+          const s1 = input.slice(pos, pos + 1);
+          const s1Upper = s1.toUpperCase();
+          if (alphabet.indexOf(s1Upper) !== -1) {
+            token = s1Upper;
             tokenLen = 1;
+            isUpperCase = s1 === s1.toUpperCase();
           } else {
             out += s1;
             pos += 1;
@@ -118,7 +125,15 @@ function FirstForm() {
           } else {
             resultNum = (((x - (key + i)) % mod) + mod) % mod;
           }
-          out += alphabet[resultNum];
+
+          let resultChar = alphabet[resultNum];
+
+          // Agar asl harf kichik bo'lsa, natijani ham kichik qilamiz
+          if (!isUpperCase) {
+            resultChar = resultChar.toLowerCase();
+          }
+
+          out += resultChar;
           i++;
         } else {
           out += token;
@@ -136,7 +151,7 @@ function FirstForm() {
 
   useEffect(() => {
     form.resetFields();
-  }, [lang]);
+  }, [form]);
 
   return (
     <Card className={styles.card}>

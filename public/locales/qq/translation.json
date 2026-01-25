@@ -15,9 +15,9 @@
   "Ei = (xi + i + k)mod34": "E = (x + i + k)mod34",
   "Ei = Shifrlanǵan hárip,   xi = háriptiń alfavittegi tártip nomeri, i = háriptiń sózdegi ornı, K=gilt, mod = háripti álipbeden shıǵıp qalmawın támiyinleydi.": "E = Shifrlanǵan hárip,   x = háriptiń alfavittegi tártip nomeri, i = háriptiń sózdegi ornı, K=gilt, mod = háripti álipbeden shıǵıp qalmawın támiyinleydi.",
 
-  "Di = (y - (i + k))mod34": "Di = (y - (i + k))mod34",
+  "Di = (y - (i + k))mod34": "Dᵢ = (yᵢ − (i + K))mod34",
   "Shifrdi ashıw procesi de uqsas, biraq giltti alıw ('-') arqalı orınlanadı": "Shifrdi ashıw procesi de uqsas, biraq giltti alıw ('-') arqalı orınlanadı",
 
   "Ei = Taza hárip, xi = Hárip tártip nomeri, i = Háripler sanı, K=Gilt, mod =operaciyası háripti álipbeden shiģip qalmawın támiyinleydi": "Ei = Taza hárip, xi = Hárip tártip nomeri, i = Háripler sanı, K=Gilt, mod =operaciyası háripti álipbeden shiģip qalmawın támiyinleydi",
-  "Shifrdi ashiw procesi uqsas, biraq giltti alıw ('-') arqalı orınlanadı":"Shifrdi ashiw procesi uqsas, biraq giltti alıw ('-') arqalı orınlanadı"
+  "Shifrdi ashiw procesi uqsas, biraq giltti alıw ('-') arqalı orınlanadı": "Shifrdi ashiw procesi uqsas, biraq giltti alıw ('-') arqalı orınlanadı"
 }

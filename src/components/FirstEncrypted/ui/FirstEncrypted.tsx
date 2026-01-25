@@ -21,7 +21,7 @@ function FirstEncrypted() {
               desc1={t("The encryption algorithm formula is:")}
               desc2={t("Ei = (xi + i + k)mod34")}
               desc3={t(
-                "Ei = Shifrlanǵan hárip,   xi = háriptiń alfavittegi tártip nomeri, i = háriptiń sózdegi ornı, K=gilt, mod = háripti álipbeden shıǵıp qalmawın támiyinleydi."
+                "Ei = Shifrlanǵan hárip,   xi = háriptiń alfavittegi tártip nomeri, i = háriptiń sózdegi ornı, K=gilt, mod = háripti álipbeden shıǵıp qalmawın támiyinleydi.",
               )}
               formula="e"
             />
@@ -32,7 +32,7 @@ function FirstEncrypted() {
               desc1={t("The encryption algorithm formula is:")}
               desc2={t("Di = (y - (i + k))mod34")}
               desc3={t(
-                "Shifrdi ashıw procesi de uqsas, biraq giltti alıw ('-') arqalı orınlanadı"
+                "Shifrdi ashıw procesi de uqsas, biraq giltti alıw ('-') arqalı orınlanadı",
               )}
               formula="d"
             />
