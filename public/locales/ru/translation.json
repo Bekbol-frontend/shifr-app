@@ -1,0 +1,25 @@
+{
+  "Edit the program": "Редактировать программу",
+  "Encryption": "Шифрование",
+  "Decipher": "Расшифровать",
+  "The encryption algorithm formula is:": "Формула алгоритма шифрования выглядит следующим образом:",
+  "To restore the text, enter:": "Чтобы восстановить текст, введите:",
+  "Comply with:": "Соответствовать:",
+  "Key": "Ключ",
+
+  "Please input your text!": "Пожалуйста, введите свой текст!",
+  "Please input your operation!": "Пожалуйста, введите название вашей деятельности!",
+  "Please input your key!": "Пожалуйста, введите свой ключ!",
+
+  "Get result": "Получить результат",
+  "Result": "Результат",
+
+  "Ei = (xi + i + k)mod34": "Eᵢ = (xᵢ + i + K)mod26",
+  "Ei = Shifrlanǵan hárip,   xi = háriptiń alfavittegi tártip nomeri, i = háriptiń sózdegi ornı, K=gilt, mod = háripti álipbeden shıǵıp qalmawın támiyinleydi.": "E = Зашифрованная буква, x = Позиция буквы в алфавите, i = Позиция буквы в слове, K = ключ, mod = Гарантирует, что буква не выйдет за пределы алфавита.",
+
+  "Di = (y - (i + k))mod34": "Dᵢ = (yᵢ − (i + K))mod26",
+  "Shifrdi ashıw procesi de uqsas, biraq giltti alıw ('-') arqalı orınlanadı": "Формула расшифровки аналогична, но выполняется с использованием знака (-).",
+
+  "Ei = Taza hárip, xi = Hárip tártip nomeri, i = Háripler sanı, K=Gilt, mod =operaciyası háripti álipbeden shiģip qalmawın támiyinleydi": "Ei = зашифрованная буква, xi — позиция буквы в алфавите в исходном тексте, k — ключ по модулю — гарантирует, что буква не выйдет за пределы алфавита.",
+  "Shifrdi ashiw procesi uqsas, biraq giltti alıw ('-') arqalı orınlanadı": "Формула расшифровки аналогична, но выполняется с использованием знака (-)."
+}

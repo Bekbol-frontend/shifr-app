@@ -16,6 +16,13 @@ const items: MenuProps["items"] = [
     key: LangEnum.QQ,
     label: "Qaraqalpaq",
   },
+  {
+    type: "divider",
+  },
+  {
+    key: LangEnum.RU,
+    label: "Русский",
+  },
 ];
 
 function SwitchLang() {
