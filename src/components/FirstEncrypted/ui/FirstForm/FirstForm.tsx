@@ -61,6 +61,7 @@ function FirstForm() {
         "W",
         "Y",
         "Z",
+        "C"
       ],
       ru: [
         "А",
