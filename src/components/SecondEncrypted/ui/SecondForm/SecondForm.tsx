@@ -5,6 +5,7 @@ import TextArea from "antd/es/input/TextArea";
 import styles from "./SecondForm.module.css";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useAppContext } from "@/hooks/useAppContext";
 
 const { Title } = Typography;
 
@@ -14,44 +15,71 @@ type FieldType = {
   operation?: string;
 };
 
+const alphabets: Record<string, string[]> = {
+  en: "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""),
+  qq: [
+    "A", "Á", "B", "D", "E", "F", "G", "Ǵ", "H", "X",
+    "Í", "I", "J", "K", "Q", "L", "M", "N", "Ń", "O",
+    "Ó", "P", "R", "S", "T", "U", "Ú", "V", "W", "Y", "Z", "C",
+  ],
+  ru: [
+    "А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И",
+    "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т",
+    "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ы", "Ь",
+    "Э", "Ю", "Я",
+  ],
+};
+
 function SecondForm() {
   const [result, setResult] = useState<string>("");
   const { t } = useTranslation();
+  const { lang } = useAppContext();
 
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     const text = values.text || "";
     const key = Number(values.key) || 0;
     const operation = values.operation;
 
-    // Alfabet (faqat harflar)
-    const aCode = "a".charCodeAt(0);
+    // Joriy til alifbosini olish (default: en)
+    const currentLang = (lang as string) in alphabets ? (lang as string) : "en";
+    const alpha = alphabets[currentLang]; // uppercase harflar massivi
+    const alphaSize = alpha.length;
+
+    // Tez qidirish uchun: UPPERCASE harf -> index
+    const charToIndex = new Map<string, number>();
+    alpha.forEach((ch, idx) => {
+      charToIndex.set(ch.toUpperCase(), idx);
+    });
 
     const processText = (input: string) => {
       let out = "";
 
       for (let i = 0; i < input.length; i++) {
         const ch = input[i];
-        const lower = ch.toLowerCase();
+        const upperCh = ch.toUpperCase();
 
-        // Agar harf bo‘lmasa, o‘zgartirmay qo‘shamiz
-        if (lower < "a" || lower > "z") {
+        // Alifboda yo'q belgilar o'zgarishsiz qoladi
+        if (!charToIndex.has(upperCh)) {
           out += ch;
           continue;
         }
 
-        const xi = lower.charCodeAt(0) - aCode;
+        const xi = charToIndex.get(upperCh)!;
+        // Toq pozitsiya (1,3,5,...) => +key, juft pozitsiya (2,4,6,...) => -key
         const sign = (i + 1) % 2 === 1 ? 1 : -1;
 
-        let resultNum: number;
+        let resultIdx: number;
         if (operation === "encrypt") {
-          resultNum = (((xi + sign * key) % 26) + 26) % 26;
+          resultIdx = (((xi + sign * key) % alphaSize) + alphaSize) % alphaSize;
         } else {
-          resultNum = (((xi - sign * key) % 26) + 26) % 26;
+          resultIdx = (((xi - sign * key) % alphaSize) + alphaSize) % alphaSize;
         }
 
-        const newChar = String.fromCharCode(aCode + resultNum);
+        // Asl harf katta yoki kichik ekanligini saqlash
+        const isUpperCase = ch === ch.toUpperCase() && ch !== ch.toLowerCase();
+        const newChar = alpha[resultIdx]; // alpha massivida uppercase saqlanadi
 
-        out += ch === ch.toUpperCase() ? newChar.toUpperCase() : newChar;
+        out += isUpperCase ? newChar : newChar.toLowerCase();
       }
 
       return out;
