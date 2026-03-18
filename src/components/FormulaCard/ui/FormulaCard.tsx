@@ -1,6 +1,7 @@
 import { Card, Flex, Typography } from "antd";
 import styles from "./FormulaCard.module.css";
 import { LockOutlined } from "@ant-design/icons";
+import { useAppContext } from "@/hooks/useAppContext";
 
 const { Paragraph, Title } = Typography;
 
@@ -14,6 +15,8 @@ interface IProps {
 }
 
 function FormulaCard({ title, desc1, desc2, desc3, formula }: IProps) {
+  const { lang } = useAppContext();
+
   return (
     <Card className={styles.card}>
       <Flex align="center" gap={5} className={styles.formulaBlock}>
@@ -26,13 +29,15 @@ function FormulaCard({ title, desc1, desc2, desc3, formula }: IProps) {
       ) : formula === "e" ? (
         <Paragraph code>
           <span>
-            E<sub>i</sub> = ( x<sub>i</sub> + (-1)<sup>i+1</sup> * k)mod26
+            E<sub>i</sub> = ( x<sub>i</sub> + (-1)<sup>i+1</sup> * k)mod
+            {lang === "en" ? "26" : lang === "ru" ? "33" : "32"}
           </span>
         </Paragraph>
       ) : (
         <Paragraph code>
           <span>
-            D<sub>i</sub> = ( x<sub>i</sub> - (-1)<sup>i+1</sup> * k)mod26
+            D<sub>i</sub> = ( x<sub>i</sub> - (-1)<sup>i+1</sup> * k)mod
+            {lang === "en" ? "26" : lang === "ru" ? "33" : "32"}
           </span>
         </Paragraph>
       )}

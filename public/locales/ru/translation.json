@@ -14,10 +14,10 @@
   "Get result": "Получить результат",
   "Result": "Результат",
 
-  "Ei = (xi + i + k)mod34": "Eᵢ = (xᵢ + i + K)mod26",
+  "Ei = (xi + i + k)mod34": "Eᵢ = (xᵢ + i + K)mod33",
   "Ei = Shifrlanǵan hárip,   xi = háriptiń alfavittegi tártip nomeri, i = háriptiń sózdegi ornı, K=gilt, mod = háripti álipbeden shıǵıp qalmawın támiyinleydi.": "E = Зашифрованная буква, x = Позиция буквы в алфавите, i = Позиция буквы в слове, K = ключ, mod = Гарантирует, что буква не выйдет за пределы алфавита.",
 
-  "Di = (y - (i + k))mod34": "Dᵢ = (yᵢ − (i + K))mod26",
+  "Di = (y - (i + k))mod34": "Dᵢ = (yᵢ − (i + K))mod33",
   "Shifrdi ashıw procesi de uqsas, biraq giltti alıw ('-') arqalı orınlanadı": "Формула расшифровки аналогична, но выполняется с использованием знака (-).",
 
   "Ei = Taza hárip, xi = Hárip tártip nomeri, i = Háripler sanı, K=Gilt, mod =operaciyası háripti álipbeden shiģip qalmawın támiyinleydi": "Ei = зашифрованная буква, xi — позиция буквы в алфавите в исходном тексте, k — ключ по модулю — гарантирует, что буква не выйдет за пределы алфавита.",
