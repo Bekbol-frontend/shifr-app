@@ -1,4 +1,4 @@
-import { Card, Col, Row, Typography } from "antd";
+import { Card, Col, Flex, Row, Typography } from "antd";
 import styles from "./FirstEncrypted.module.css";
 import { TitleBlock } from "@/components/TitleBlock";
 import { FormulaCard } from "@/components/FormulaCard";
@@ -16,11 +16,22 @@ function FirstEncrypted() {
     <div className={styles.first}>
       <Card className={styles.card}>
         <Paragraph>{t("algoritm text top")}</Paragraph>
-        <Paragraph strong>
-          <div
-            dangerouslySetInnerHTML={{ __html: t("algoritm text formula") }}
-          />
-        </Paragraph>
+        <Flex
+          vertical={isMobile}
+          gap={isMobile ? 10 : 20}
+          className={styles.flex}
+        >
+          <Paragraph strong className={styles.formulaDesc}>
+            <div
+              dangerouslySetInnerHTML={{ __html: t("algoritm text formula 1") }}
+            />
+          </Paragraph>
+          <Paragraph strong className={styles.formulaDesc}>
+            <div
+              dangerouslySetInnerHTML={{ __html: t("algoritm text formula 2") }}
+            />
+          </Paragraph>
+        </Flex>
         <Paragraph>{t("algoritm text bottom")}</Paragraph>
       </Card>
       <Card className={styles.card}>
