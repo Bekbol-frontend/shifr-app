@@ -1,4 +1,4 @@
-import { Card, Col, Row } from "antd";
+import { Card, Col, Row, Typography } from "antd";
 import styles from "./FirstEncrypted.module.css";
 import { TitleBlock } from "@/components/TitleBlock";
 import { FormulaCard } from "@/components/FormulaCard";
@@ -6,12 +6,23 @@ import { useResponsive } from "@/hooks/useResponsive";
 import FirstForm from "./FirstForm/FirstForm";
 import { useTranslation } from "react-i18next";
 
+const { Paragraph } = Typography;
+
 function FirstEncrypted() {
   const { isMobile } = useResponsive();
   const { t } = useTranslation();
 
   return (
     <div className={styles.first}>
+      <Card className={styles.card}>
+        <Paragraph>{t("algoritm text top")}</Paragraph>
+        <Paragraph strong>
+          <div
+            dangerouslySetInnerHTML={{ __html: t("algoritm text formula") }}
+          />
+        </Paragraph>
+        <Paragraph>{t("algoritm text bottom")}</Paragraph>
+      </Card>
       <Card className={styles.card}>
         <TitleBlock title={t("Edit the program")} />
         <Row gutter={[16, 16]}>
