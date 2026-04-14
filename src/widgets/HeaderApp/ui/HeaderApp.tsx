@@ -20,7 +20,7 @@ function HeaderApp() {
                 height: 70,
               }}
             />
-            <Title level={4}>Aziza Ajpa</Title>
+            <Title level={4}>P-Crypt</Title>
           </Flex>
           <Flex>
             <SwitchLang />
