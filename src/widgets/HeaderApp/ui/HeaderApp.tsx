@@ -20,7 +20,7 @@ function HeaderApp() {
                 height: 70,
               }}
             />
-            <Title level={4}>Aziza</Title>
+            <Title level={4}>Aziza Ajpa</Title>
           </Flex>
           <Flex>
             <SwitchLang />
