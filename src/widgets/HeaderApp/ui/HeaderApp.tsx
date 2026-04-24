@@ -20,7 +20,7 @@ function HeaderApp() {
                 height: 70,
               }}
             />
-            <Title level={4}>P-Crypt</Title>
+            <Title level={4}>P-Crypt and Couple</Title>
           </Flex>
           <Flex>
             <SwitchLang />
