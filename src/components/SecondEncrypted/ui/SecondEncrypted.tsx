@@ -5,6 +5,7 @@ import { FormulaCard } from "@/components/FormulaCard";
 import SecondForm from "./SecondForm/SecondForm";
 import { useResponsive } from "@/hooks/useResponsive";
 import { useTranslation } from "react-i18next";
+import CardInfoFormula from "./CardInfoFormula/CardInfoFormula";
 
 function SecondEncrypted() {
   const { isMobile } = useResponsive();
@@ -12,6 +13,7 @@ function SecondEncrypted() {
 
   return (
     <div className={styles.second}>
+      <CardInfoFormula />
       <Card className={styles.card}>
         <TitleBlock title={t("Edit the program")} />
         <Row gutter={[16, 16]}>
@@ -20,7 +22,7 @@ function SecondEncrypted() {
               title={t("Encryption")}
               desc1={t("The encryption algorithm formula is:")}
               desc3={t(
-                "Ei = Taza hárip, xi = Hárip tártip nomeri, i = Háripler sanı, K=Gilt, mod =operaciyası háripti álipbeden shiģip qalmawın támiyinleydi"
+                "Ei = Taza hárip, xi = Hárip tártip nomeri, i = Háripler sanı, K=Gilt, mod =operaciyası háripti álipbeden shiģip qalmawın támiyinleydi",
               )}
               formula="e"
             />
@@ -30,7 +32,7 @@ function SecondEncrypted() {
               title={t("Decipher")}
               desc1={t("The encryption algorithm formula is:")}
               desc3={t(
-                "Shifrdi ashiw procesi uqsas, biraq giltti alıw ('-') arqalı orınlanadı"
+                "Shifrdi ashiw procesi uqsas, biraq giltti alıw ('-') arqalı orınlanadı",
               )}
               formula="d"
             />
