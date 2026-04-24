@@ -38,7 +38,7 @@ function QqInfo() {
           paddingLeft: 20,
         }}
       >
-        <Paragraph>Bul jerde:</Paragraph>
+        <Paragraph strong>Bul jerde:</Paragraph>
         <Paragraph>
           <Text strong>E</Text>
           <sub>i</sub> - shifrlanǵan háriptiń alfavittegi tártip nomeri;
